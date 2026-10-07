@@ -1,0 +1,23 @@
+digraph p_phil {
+size="8,10";
+  GT [shape=box,style=dotted,label="phil"];
+  GT -> S23;
+	S23 -> S2  [color=black,style=solid,label="((cur_state==1))"];
+	S23 -> S7  [color=black,style=solid,label="((cur_state==2))"];
+	S23 -> S12  [color=black,style=solid,label="((cur_state==3))"];
+	S23 -> S16  [color=black,style=solid,label="((cur_state==4))"];
+	S23 -> S20  [color=black,style=solid,label="((cur_state==5))"];
+	S23 -> S22  [color=black,style=solid,label="((cur_state==0))"];
+	S2 -> S5  [color=black,style=bold,label="((forks[left]==0))"];
+	S5 -> S4  [color=black,style=dashed,label="forks[left] = 1"];
+	S4 -> S23  [color=black,style=bold,label="cur_state = 2"];
+	S7 -> S10  [color=black,style=bold,label="((forks[right]==0))"];
+	S10 -> S9  [color=black,style=dashed,label="forks[right] = 1"];
+	S9 -> S23  [color=black,style=bold,label="cur_state = 3"];
+	S12 -> S23  [color=black,style=solid,label="cur_state = 4"];
+	S16 -> S15  [color=black,style=dashed,label="forks[right] = 0"];
+	S15 -> S23  [color=black,style=bold,label="cur_state = 5"];
+	S20 -> S19  [color=black,style=dashed,label="forks[left] = 0"];
+	S19 -> S23  [color=black,style=bold,label="cur_state = 0"];
+	S22 -> S23  [color=black,style=solid,label="cur_state = 1"];
+}
